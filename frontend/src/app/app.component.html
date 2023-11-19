@@ -1,0 +1,7 @@
+
+@if(isAuthenticated()) {
+  <p>You are logged in</p>
+  <button (click)="logOut()">Logout</button>
+} @else {
+  <p>You are not logged in</p>
+}

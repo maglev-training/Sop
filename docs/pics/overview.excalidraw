@@ -1,0 +1,48 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
+  "elements": [
+    {
+      "id": "wSObop2fg6DOoF0F5AlH8",
+      "type": "text",
+      "x": 438,
+      "y": 597,
+      "width": 846.6593627929688,
+      "height": 150,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "#ffd43b",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 32495833,
+      "version": 283,
+      "versionNonce": 1843562103,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1700241238086,
+      "link": null,
+      "locked": false,
+      "text": "Creating Users\nDo I have to do it? Yet?\n    - I have the SUB - \n    - Did that PRG thing before - the app starts up it does a post to /user/logins\n    - that does a check for the user, if they exist, cool, if not, they are created.\n    - returns a redirect to /users/38938983983 ",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "baseline": 143,
+      "containerId": null,
+      "originalText": "Creating Users\nDo I have to do it? Yet?\n    - I have the SUB - \n    - Did that PRG thing before - the app starts up it does a post to /user/logins\n    - that does a check for the user, if they exist, cool, if not, they are created.\n    - returns a redirect to /users/38938983983 ",
+      "lineHeight": 1.25
+    }
+  ],
+  "appState": {
+    "gridSize": null,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}
