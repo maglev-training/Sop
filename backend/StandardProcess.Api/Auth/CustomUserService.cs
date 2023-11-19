@@ -2,6 +2,7 @@
 using Marten;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
+using StandardProcess.Api.User;
 using System.Collections.ObjectModel;
 
 namespace StandardProcess.Api.Auth;
@@ -23,7 +24,7 @@ public class CustomUserService : DefaultUserService
 
             if (sub is not null)
             {
-                var user = await _session.Query<UserSub>().SingleOrDefaultAsync(u => u.Sub == sub.Value);
+                var user = await _session.Query<UserSummary>().SingleOrDefaultAsync(u => u.Sub == sub.Value);
                 if(user is not null)
                 {
                     _userId = user.Id;

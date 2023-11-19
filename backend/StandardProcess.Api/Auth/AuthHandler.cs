@@ -11,16 +11,14 @@ public class AuthHandler
         var user = await session.Query<UserSummary>().Where(u => u.Sub == command.Sub).SingleOrDefaultAsync();
         if(user is null)
         {
-            var u = new UserSub(Guid.NewGuid(), command.Sub);
-            session.Store(u);
-            session.Events.Append(u.Id, new UserCreated(u.Id, command.Sub, ""));
+            var newId = Guid.NewGuid();
+            session.Events.Append(newId, new UserCreated(newId, command.Sub, command.Authority ?? ""));
         } else
         {
-            session.Events.Append(user.Id, new UserLoggedIn(user.Id));
+            session.Events.Append(user.Id, new UserLoggedIn(user.Id, command.Authority ?? ""));
         }
         
             await session.SaveChangesAsync();
     }
 }
 
-public record UserSub(Guid Id, string Sub);
