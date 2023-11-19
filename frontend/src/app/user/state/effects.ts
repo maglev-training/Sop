@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { getApiUrl } from '../../auth/secure-api.interceptor';
-import { AuthEvents } from '../auth/actions';
+import { AuthEvents } from '../../state/auth/actions';
 import { map, switchMap, tap } from 'rxjs';
-import { authFeature } from '../auth';
+import { authFeature } from '../../state/auth';
 import { UserState } from '.';
 import { UserDocuments } from './actions';
 

@@ -10,8 +10,8 @@ import { secureApiInterceptor } from './auth/secure-api.interceptor';
 import { authFeature } from './state/auth';
 import { AuthEffects } from './state/auth/effects';
 import { provideEffects } from '@ngrx/effects';
-import { UserEffects } from './state/user/effects';
-import { userFeature } from './state/user';
+import { UserEffects } from './user/state/effects';
+import { userFeature } from './user/state';
 
 export const appConfig: ApplicationConfig = {
   providers: [
