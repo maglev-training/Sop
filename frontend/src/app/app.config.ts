@@ -7,16 +7,20 @@ import { reducers } from './state';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { secureApiInterceptor } from './auth/secure-api.interceptor';
-import { userFeature } from './state/user';
-import { UserEffects } from './state/user/effects';
+import { authFeature } from './state/auth';
+import { AuthEffects } from './state/auth/effects';
 import { provideEffects } from '@ngrx/effects';
+import { UserEffects } from './state/user/effects';
+import { userFeature } from './state/user';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),
+  providers: [
+    provideRouter(routes),
     provideHttpClient(withInterceptors([secureApiInterceptor])),
-  provideStore(reducers),
-  provideState(userFeature),
-  provideEffects([UserEffects]),
-  provideStoreDevtools()
-  ]
+    provideStore(reducers),
+    provideState(authFeature),
+    provideState(userFeature),
+    provideEffects([AuthEffects, UserEffects]),
+    provideStoreDevtools(),
+  ],
 };

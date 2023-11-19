@@ -1,15 +1,18 @@
 ﻿using Duende.Bff;
 using Wolverine;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Marten;
 
 namespace StandardProcess.Api.Auth;
 
 public class CustomOidcEventTypes : BffOpenIdConnectEvents
 {
     private readonly IMessageBus _bus;
-    public CustomOidcEventTypes(ILogger<BffOpenIdConnectEvents> logger, IMessageBus bus) : base(logger)
+    private readonly IDocumentSession _session;
+    public CustomOidcEventTypes(ILogger<BffOpenIdConnectEvents> logger, IMessageBus bus, IDocumentSession session) : base(logger)
     {
         _bus = bus;
+        _session = session;
     }
 
     public override async Task TokenValidated(TokenValidatedContext context)
@@ -22,6 +25,7 @@ public class CustomOidcEventTypes : BffOpenIdConnectEvents
             if (sub is not null)
             {
                 await _bus.PublishAsync(new ProcessLogin(sub.Value));
+                
             }
         }
 

@@ -2,8 +2,8 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { userFeature } from './state/user';
-import { UserCommands } from './state/user/actions';
+import { authFeature } from './state/auth';
+import { AuthCommands } from './state/auth/actions';
 
 @Component({
   selector: 'app-root',
@@ -15,14 +15,14 @@ import { UserCommands } from './state/user/actions';
 export class AppComponent implements OnInit {
   title = 'frontend';
   private readonly store = inject(Store);
-  isAuthenticated = this.store.selectSignal(userFeature.selectIsAuthenticated);
+  isAuthenticated = this.store.selectSignal(authFeature.selectIsAuthenticated);
 
   ngOnInit(): void {
       if(this.isAuthenticated() === false) {
-        this.store.dispatch(UserCommands.checkAuth());
+        this.store.dispatch(AuthCommands.checkAuth());
       }
   }
   logOut() {
-      this.store.dispatch(UserCommands.logOut());
+      this.store.dispatch(AuthCommands.logOut());
   }
 }
